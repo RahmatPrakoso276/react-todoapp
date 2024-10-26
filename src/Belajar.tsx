@@ -1,3 +1,4 @@
+// membuat website dinamis
 export default function belajar() {
   const name = "Rahmat";
   const techStack = ["React", "Javascript", "Typescript"];
