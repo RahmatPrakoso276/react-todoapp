@@ -1,20 +1,25 @@
 import posts from "../dummy.json";
 import MovieList from "../components/MovieList";
 
-// destructure properti title, tags, dan date dari object props
 export default function index() {
   return (
     <>
       <div>Simple Movie List</div>
       <div>
+        {/* akses semua data di json */}
         {posts.map((data) => {
           return (
-            <MovieList
-              key={data.id}
-              title={data.title}
-              tags={data.tags}
-              date={data.date}
-            />
+            <>
+              {/* reuseable components */}
+              <MovieList
+                //  passing data props ke childnya
+                key={data.id} // harus unik
+                title={data.title} // mengirim title ke child
+                tags={data.tags} // mengirim tags (berupa array) ke child
+                date={data.date} // mengirim date ke child
+              />
+              br
+            </>
           );
         })}
       </div>
