@@ -6,17 +6,23 @@ import Belajar from "./Belajar.tsx";
 import Props from "./Props.tsx";
 import Props2 from "./Props2.tsx";
 import Indexes from "./pages/index.tsx";
+import Profile from "./pages/profile.tsx";
+import Hooks1 from "./Hooks1.tsx";
 // file entrypoint pertama kali diakses!
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
+    <Hooks1 />
+    <br />
+    <Profile />
+    <br />
     <Belajar />
     <br />
     <Props name="Rahmat" stacks={["React", "Javascript", "python"]} />
     <br />
     <Props2 title="Belajar React" childern={<div>Props</div>} />
     <br />
-    <Indexes  />
+    <Indexes />
     <br />
     <App />
   </StrictMode>
