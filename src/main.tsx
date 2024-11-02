@@ -15,8 +15,6 @@ createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <EventHandler />
     <br />
-    <Hooks1 />
-    <br />
 
     <Profile />
     <br />
@@ -29,5 +27,8 @@ createRoot(document.getElementById("root")!).render(
     <Indexes />
     <br />
     <App />
+    <br />
+
+    <Hooks1 />
   </StrictMode>
 );
