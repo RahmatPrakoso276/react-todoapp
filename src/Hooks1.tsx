@@ -10,6 +10,7 @@ export default function Hooks1() {
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     setGreetings(e.target.value);
   }
+  
   return (
     <div>
       <h1>input greetings!!!</h1>

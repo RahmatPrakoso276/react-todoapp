@@ -6,14 +6,18 @@ import Belajar from "./Belajar.tsx";
 import Props from "./Props.tsx";
 import Props2 from "./Props2.tsx";
 import Indexes from "./pages/index.tsx";
-import Profile from "./pages/profile.tsx";
+import Profile from "./pages/Profile.tsx";
 import Hooks1 from "./Hooks1.tsx";
+import EventHandler from "./EventHandler.tsx";
 // file entrypoint pertama kali diakses!
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
+    <EventHandler />
+    <br />
     <Hooks1 />
     <br />
+
     <Profile />
     <br />
     <Belajar />

@@ -18,7 +18,7 @@ export default function Index() {
           type="text"
           value={title}
           onChange={changeSearch}
-          placeholder="cari judul"
+          placeholder="Cari judul"
         />
         {title}
       </div>
