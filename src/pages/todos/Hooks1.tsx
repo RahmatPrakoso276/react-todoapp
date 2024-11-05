@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import { Link } from "react-router-dom";
 interface Todo {
   id: number;
   title: string;
@@ -12,10 +12,37 @@ export default function Hooks1() {
   const [datas, setDatas] = useState<Todo[]>([]); // Mengatur tipe array `datas` sebagai `Todo[]`
 
   useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/todos/")
-      .then((response) => response.json())
-      .then((json: Todo[]) => setDatas(json)) // Pastikan TypeScript tahu bahwa `json` adalah array `Todo`
-      .catch((error) => console.error("Error Fetching data", error));
+    /**
+     * Fetches data from the API and sets the state `datas` accordingly.
+     * Uses the `fetch` API to fetch data from the API and the `json()` method to parse it as JSON.
+     * If there is an error, logs the error to the console.
+     */
+    const fetchData = async () => {
+      try {
+        /**
+         * Fetches the data from the API and waits for the response to be ready.
+         * The `fetch` API returns a Promise that resolves to the Response object.
+         */
+        const response = await fetch(
+          "https://jsonplaceholder.typicode.com/todos/"
+        );
+
+        /**
+         * Parses the response as JSON and waits for the Promise to be resolved.
+         * The `json()` method returns a Promise that resolves to the parsed JSON.
+         */
+        const json: Todo[] = await response.json();
+
+        /**
+         * Sets the state `datas` to the parsed JSON data.
+         * Makes sure TypeScript knows that `json` is an array of `Todo` objects.
+         */
+        setDatas(json);
+      } catch (error) {
+        console.error("Error Fetching data", error);
+      }
+    };
+    fetchData();
   }, []);
   function handleClick() {
     setInputs(!inputs);
@@ -57,7 +84,7 @@ export default function Hooks1() {
               key={id}
               className={completed ? "line-through text-gray-400" : ""}
             >
-              {title}
+              <Link to={`/hooks1/${id}`}>{title}</Link>
               <input
                 type="checkbox"
                 defaultChecked={completed}
